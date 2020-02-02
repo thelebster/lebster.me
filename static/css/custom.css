@@ -1,0 +1,46 @@
+.homepage .container {
+  max-width: 960px;
+}
+
+.avatar .image {
+  max-width: 120px;
+  margin: 0 auto;
+}
+
+.footer {
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 769px), print {
+  .avatar .image {
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .reverse-columns {
+    flex-direction: column-reverse;
+    display: flex;
+  }
+
+  .breadcrumb ul {
+    display: block;
+  }
+
+  .breadcrumb li {
+    display: block;
+  }
+
+  .breadcrumb li + li::before {
+    content: "";
+  }
+
+  .breadcrumb li a {
+    display: block;
+    padding: 0.5em 0.75em;
+  }
+
+  .breadcrumb li:first-child a {
+    padding: 0.5em 0.75em;
+  }
+}

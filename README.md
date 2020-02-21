@@ -11,6 +11,14 @@ hugo server -D
 ### Build and deploy
 
 ```
+cd assets/sass
+npm install
+
+# Build css.
+npm run css-build
+
+cd ..
+
 hugo
 ```
 

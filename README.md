@@ -14,10 +14,10 @@ hugo server -D
 cd assets/sass
 npm install
 
-# Build css.
+# Build css
 npm run css-build
 
-cd ..
+cd ../..
 
 hugo
 ```

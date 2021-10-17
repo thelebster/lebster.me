@@ -1,0 +1,41 @@
+name: Build Hugo Site
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build CSS
+        run: |
+          cd assets/sass
+          npm install
+          npm run css-build
+          cd ../..
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.73.0'
+          extended: true
+
+      - name: Build Hugo Site
+        run: hugo
+
+      - name: Deploy
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -t rsa $SSH_HOST >> ~/.ssh/known_hosts
+          echo $SSH_KEY | base64 --decode > ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa
+          rsync -av -e "ssh -i ~/.ssh/id_rsa" --delete ./public/ root@$SSH_HOST:/var/www/html/lebster.me/

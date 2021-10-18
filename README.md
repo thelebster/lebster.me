@@ -8,7 +8,7 @@ Build on top of [Hugo](https://gohugo.io) — open-source static site generator 
 hugo server -D
 ```
 
-### Build and deploy
+### Build
 
 ```
 cd assets/sass
@@ -20,8 +20,4 @@ npm run css-build
 cd ../..
 
 hugo
-```
-
-```
-scp -i ~/.ssh/ssh_key -r ~/example.com/public/* root@example.com:/var/www/html/
 ```

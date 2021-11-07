@@ -8,6 +8,12 @@ Build on top of [Hugo](https://gohugo.io) — open-source static site generator 
 hugo server -D
 ```
 
+### Add new gist
+
+```
+hugo new gists/first-gist.md
+```
+
 ### Build
 
 ```

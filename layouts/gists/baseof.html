@@ -2,7 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Favourites GitHub Gists</title>
+    <title>{{ block "title" . }}
+      {{ if .Page.Title }}
+        {{ .Page.Title }}
+      {{ else }}
+        {{ .Site.Title }}
+      {{ end }}
+    {{ end }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="img/png" href="img/favicon.png">

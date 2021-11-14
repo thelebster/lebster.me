@@ -1,8 +1,11 @@
 {{ define "main" }}
 <h1>Favourites GitHub Gists</h1>
-{{ range .Pages }}
-<article>
-  <a href="{{.Permalink}}"> {{.Title}}</a>
-</article>
-{{ end }}
+{{ .Content }}
+<div class="block">
+  {{ range .Pages }}
+  <article>
+    <a href="{{.Permalink}}"> {{.Title}}</a>
+  </article>
+  {{ end }}
+</div>
 {{ end }}

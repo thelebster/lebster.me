@@ -2,14 +2,27 @@
 <section id="main">
   {{ if $.Params.gist_url }}
     {{ $data := getJSON $.Params.gist_url }}
-    <a href="/gists"><- Back</a> / <a href="{{ $data.html_url }}">Fork gist</a>
+    <div class="header-links">
+      <nav class="links">
+        <ul>
+          <li><a href="/gists">All gists</a></li>
+          <li><a href="{{ $data.html_url }}">Fork gist</a></li>
+        </ul>
+      </nav>
+    </div>
     {{ range $data.files }}
       {{ .content | $.RenderString }}
     {{ end }}
   {{ else }}
   <h1 id="title">{{ .Title }}</h1>
   <div>
-    <a href="/gists"><- Back</a>
+    <div class="header-links">
+      <nav class="links">
+        <ul>
+          <li><a href="/gists">All gists</a></li>
+        </ul>
+      </nav>
+    </div>
     <article id="content">
       {{ .Content }}
     </article>

@@ -3,3 +3,4 @@
 public/
 assets/sass/node_modules
 assets/sass/package-lock.json
+static/css/style.css.map

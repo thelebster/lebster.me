@@ -43,6 +43,12 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
+      - name: Build CSS
+        run: |
+          cd assets/sass
+          npm install
+          npm run css-build
+          cd ../..
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules

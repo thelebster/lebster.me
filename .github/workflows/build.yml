@@ -3,7 +3,7 @@ name: Build Hugo Site
 on:
   push:
     branches:
-      - master
+      - do-not-run-master # Pipeline will not run
 
 jobs:
   build:
